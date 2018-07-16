@@ -39,14 +39,15 @@ public class Individual {
         }
     }
 
-    public int evaluateFitness() {
-        this.fitness = 0;
-        for (int i = 0; i < genes.length; i++) {
-            if (genes[i] == 1) {
-                fitness++;
-            }
-        }
-        return fitness;
+    public int evaluateFitness(){
+    this.fitness = 0;
+    int decimal = 0, p = 0;
+    for (int i = 0; i < genes.length; i++){
+    decimal += ((genes[i] % 10) * Math.pow(2, p));
+    p++;
+    }
+    this.fitness = decimal * decimal;
+    return fitness;
     }
 
     public int getFitness() {
